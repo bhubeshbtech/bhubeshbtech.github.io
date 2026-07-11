@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bhubeshnath P — Biotechnology &amp; Computational Biology</title>
+<meta name="description" content="Portfolio of Bhubeshnath P — Biotechnology graduate working across wet-lab research, computational biology, and product formulation.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F6F8F4;
+    --bg-alt:#EBEEE6;
+    --card:#FFFFFF;
+    --ink:#171B1A;
+    --ink-soft:#4E5652;
+    --ink-faint:#5A615C;
+    --amber:#87591A;
+    --amber-soft:#E4C68A;
+    --teal:#1C7C74;
+    --teal-soft:#CFE6E3;
+    --line:#DADFD4;
+    --radius:14px;
+    --maxw:1120px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:'Space Grotesk', sans-serif;
+    line-height:1.12;
+    margin:0 0 .4em;
+    letter-spacing:-0.01em;
+  }
+  .mono{
+    font-family:'IBM Plex Mono', monospace;
+  }
+  a{color:inherit;}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 28px;}
+  img,svg{display:block; max-width:100%;}
+
+  /* focus visibility */
+  a:focus-visible, button:focus-visible{
+    outline:2px solid var(--teal);
+    outline-offset:3px;
+    border-radius:4px;
+  }
+
+  /* ---------- NAV ---------- */
+  header.site-nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(246,248,244,0.88);
+    backdrop-filter:saturate(140%) blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    max-width:var(--maxw); margin:0 auto; padding:16px 28px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .nav-name{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:14px; font-weight:500;
+    letter-spacing:0.02em;
+    text-decoration:none;
+  }
+  .nav-links{
+    display:flex; gap:28px; list-style:none; margin:0; padding:0;
+  }
+  .nav-links a{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    text-decoration:none;
+    color:var(--ink-soft);
+    letter-spacing:0.02em;
+    transition:color .2s;
+  }
+  .nav-links a:hover{color:var(--teal);}
+  .nav-toggle{display:none; background:none; border:none; cursor:pointer; padding:6px;}
+  .nav-toggle span{display:block; width:22px; height:2px; background:var(--ink); margin:4px 0;}
+
+  @media (max-width:720px){
+    .nav-links{
+      position:fixed; top:57px; left:0; right:0;
+      background:var(--bg); border-bottom:1px solid var(--line);
+      flex-direction:column; gap:0; padding:8px 28px 16px;
+      transform:translateY(-140%); transition:transform .25s ease;
+    }
+    .nav-links.open{transform:translateY(0);}
+    .nav-links a{display:block; padding:10px 0; border-bottom:1px solid var(--line);}
+    .nav-toggle{display:block;}
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    padding:76px 0 40px;
+    position:relative;
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    color:var(--teal);
+    letter-spacing:0.09em;
+    text-transform:uppercase;
+    margin-bottom:18px;
+    display:flex; align-items:center; gap:10px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:7px; height:7px; border-radius:50%;
+    background:var(--teal);
+    display:inline-block;
+  }
+  .hero h1{
+    font-size:clamp(2.4rem, 6vw, 4.2rem);
+    font-weight:600;
+  }
+  .hero .role{
+    font-size:clamp(1.05rem, 2.4vw, 1.35rem);
+    color:var(--ink-soft);
+    max-width:640px;
+    margin:0 0 34px;
+    font-weight:400;
+  }
+  .hero .role strong{color:var(--ink); font-weight:600;}
+
+  .spectrum-wrap{
+    margin:8px 0 30px;
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    background:var(--card);
+    padding:18px 22px 10px;
+  }
+  .spectrum-label-row{
+    display:flex; justify-content:space-between; align-items:baseline;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11.5px; color:var(--ink-faint);
+    margin-bottom:2px;
+  }
+  #spectrum-svg{width:100%; height:auto;}
+  .spectrum-caption{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11.5px; color:var(--ink-faint);
+    display:flex; justify-content:space-between;
+    padding-top:2px;
+  }
+
+  .hero-ctas{display:flex; flex-wrap:wrap; gap:14px; margin-top:8px;}
+  .btn{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    padding:11px 20px;
+    border-radius:8px;
+    text-decoration:none;
+    display:inline-flex; align-items:center; gap:8px;
+    border:1px solid var(--ink);
+    transition:transform .15s ease, background .15s ease, color .15s ease;
+  }
+  .btn-primary{background:var(--ink); color:var(--bg);}
+  .btn-primary:hover{background:var(--teal); border-color:var(--teal); transform:translateY(-1px);}
+  .btn-ghost{background:transparent; color:var(--ink); border-color:var(--line);}
+  .btn-ghost:hover{border-color:var(--ink); transform:translateY(-1px);}
+
+  /* ---------- SECTION GENERIC ---------- */
+  section{padding:64px 0;}
+  .section-alt{background:var(--bg-alt);}
+  .section-head{max-width:640px; margin-bottom:40px;}
+  .section-head h2{font-size:clamp(1.6rem, 3.4vw, 2.2rem);}
+  .section-head p{color:var(--ink-soft); font-size:1.02rem;}
+
+  .divider-curve{
+    width:100%; height:34px; opacity:.35; margin:8px 0 6px;
+  }
+
+  /* ---------- BRIDGE / PILLARS ---------- */
+  .pillars{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:22px;
+  }
+  @media (max-width:860px){ .pillars{grid-template-columns:1fr;} }
+  .pillar{
+    background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
+    padding:26px 24px;
+  }
+  .pillar .tag{
+    font-family:'IBM Plex Mono', monospace; font-size:11.5px;
+    color:var(--amber); letter-spacing:.06em; text-transform:uppercase;
+    margin-bottom:10px; display:block;
+  }
+  .pillar h3{font-size:1.15rem; margin-bottom:10px;}
+  .pillar p{color:var(--ink-soft); font-size:.94rem; margin:0 0 14px;}
+  .chip-row{display:flex; flex-wrap:wrap; gap:7px;}
+  .chip{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11.5px;
+    background:var(--bg-alt);
+    border:1px solid var(--line);
+    padding:5px 10px;
+    border-radius:20px;
+    color:var(--ink-soft);
+  }
+  .pillar:nth-child(2) .chip{background:var(--teal-soft); border-color:transparent; color:#0F4B46;}
+
+  /* ---------- PROJECTS ---------- */
+  .project-card{
+    background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
+    padding:32px; margin-bottom:24px;
+  }
+  .project-card.featured{border-color:var(--teal); box-shadow:0 1px 0 var(--teal);}
+  .project-top{
+    display:flex; justify-content:space-between; align-items:flex-start; gap:20px; flex-wrap:wrap;
+    margin-bottom:6px;
+  }
+  .project-top h3{font-size:1.4rem; margin-bottom:4px;}
+  .project-meta{
+    font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--ink-faint);
+  }
+  .project-desc{color:var(--ink-soft); margin:14px 0 18px; max-width:760px;}
+  .project-facets{
+    display:flex; gap:10px; flex-wrap:wrap; margin-bottom:18px;
+  }
+  .facet{
+    font-family:'IBM Plex Mono', monospace; font-size:11px;
+    padding:4px 10px; border-radius:6px;
+    background:var(--bg-alt); color:var(--ink-soft);
+  }
+  .project-list{margin:0; padding-left:20px; color:var(--ink-soft);}
+  .project-list li{margin-bottom:7px; font-size:.96rem;}
+  .project-links{margin-top:18px; display:flex; gap:12px; flex-wrap:wrap;}
+  .project-links a{
+    font-family:'IBM Plex Mono', monospace; font-size:12.5px;
+    text-decoration:none; color:var(--teal); border-bottom:1px solid var(--teal-soft);
+    padding-bottom:1px;
+  }
+  .project-links a:hover{border-color:var(--teal);}
+
+  /* ---------- TIMELINE ---------- */
+  .timeline{position:relative; margin-left:8px; padding-left:28px; border-left:2px solid var(--line);}
+  .tl-item{position:relative; padding-bottom:34px;}
+  .tl-item:last-child{padding-bottom:0;}
+  .tl-item::before{
+    content:""; position:absolute; left:-34px; top:4px;
+    width:11px; height:11px; border-radius:50%;
+    background:var(--card); border:2px solid var(--teal);
+  }
+  .tl-year{font-family:'IBM Plex Mono', monospace; font-size:12.5px; color:var(--amber); margin-bottom:4px; display:block;}
+  .tl-item h4{font-size:1.02rem; margin:0 0 4px;}
+  .tl-item p{color:var(--ink-soft); font-size:.93rem; margin:0;}
+
+  /* ---------- SKILLS ---------- */
+  .skills-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:26px 40px;}
+  @media (max-width:720px){.skills-grid{grid-template-columns:1fr;}}
+  .skill-group h4{
+    font-family:'IBM Plex Mono', monospace; font-size:12.5px;
+    text-transform:uppercase; letter-spacing:.05em; color:var(--ink-faint);
+    margin:0 0 10px; font-weight:500;
+  }
+  .skill-group .chip-row{margin-bottom:4px;}
+
+  /* ---------- CERTS ---------- */
+  .cert-grid{
+    display:grid; grid-template-columns:repeat(2,1fr); gap:10px 24px;
+  }
+  @media (max-width:720px){.cert-grid{grid-template-columns:1fr;}}
+  .cert-item{
+    display:flex; gap:10px; align-items:baseline;
+    padding:10px 0; border-bottom:1px solid var(--line);
+    font-size:.92rem; color:var(--ink-soft);
+  }
+  .cert-item .cert-dot{color:var(--amber); font-family:'IBM Plex Mono', monospace;}
+  .cert-note{margin-top:16px; font-size:.86rem; color:var(--ink-faint);}
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    background:var(--ink); color:var(--bg);
+    padding:60px 0 34px;
+  }
+  footer h2{color:var(--bg); font-size:clamp(1.7rem,4vw,2.4rem);}
+  footer p.lead{color:#C4CBC6; max-width:520px;}
+  .contact-links{display:flex; flex-wrap:wrap; gap:16px; margin:26px 0 46px;}
+  .contact-links a{
+    font-family:'IBM Plex Mono', monospace; font-size:13px;
+    color:var(--bg); text-decoration:none;
+    border:1px solid #3A423E; padding:10px 18px; border-radius:8px;
+    transition:border-color .2s, background .2s;
+  }
+  .contact-links a:hover{border-color:var(--teal); background:rgba(28,124,116,0.18);}
+  .foot-bottom{
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;
+    border-top:1px solid #333B37; padding-top:22px;
+    font-family:'IBM Plex Mono', monospace; font-size:11.5px; color:#8B938D;
+  }
+
+  /* reveal */
+  .reveal{opacity:0; transform:translateY(18px); transition:opacity .6s ease, transform .6s ease;}
+  .reveal.is-visible{opacity:1; transform:translateY(0);}
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    .reveal{opacity:1; transform:none; transition:none;}
+  }
+</style>
+</head>
+<body>
+
+<header class="site-nav">
+  <div class="nav-inner">
+    <a class="nav-name mono" href="#top">BHUBESHNATH_P</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#bridge">About</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#timeline">Timeline</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow">Biotechnology Graduate — Chennai, India</p>
+      <h1>Bhubeshnath P</h1>
+      <p class="role">Working where <strong>wet-lab biology</strong> meets <strong>computational biology</strong> and <strong>product formulation</strong> — final-year B.Tech Biotechnology, GATE (BT) 2025 qualified.</p>
+
+      <div class="spectrum-wrap reveal">
+        <div class="spectrum-label-row">
+          <span>NANODROP UV-VIS SCAN — REPRESENTATIVE READOUT</span>
+          <span>200–900 nm</span>
+        </div>
+        <svg id="spectrum-svg" viewBox="0 0 1000 260" preserveAspectRatio="none" aria-hidden="true">
+          <line x1="0" y1="230" x2="1000" y2="230" stroke="#DADFD4" stroke-width="1"/>
+          <path id="spectrum-path" d="M0,222 C90,218 150,206 178,120 C192,66 202,42 218,38 C234,42 248,66 266,128 C300,208 360,224 470,226 C620,228 800,229 1000,230"
+                fill="none" stroke="#1C7C74" stroke-width="2.5" stroke-linecap="round"/>
+          <circle id="spectrum-peak" cx="218" cy="38" r="5" fill="#87591A" opacity="0"/>
+          <text id="spectrum-peak-label" x="232" y="34" font-family="IBM Plex Mono, monospace" font-size="13" fill="#87591A" opacity="0">&#955;max</text>
+        </svg>
+        <div class="spectrum-caption">
+          <span>0.0 Abs</span>
+          <span>1.86 Abs</span>
+        </div>
+      </div>
+
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="#work">View Work</a>
+        <a class="btn btn-ghost" href="assets/Bhubeshnath_P_Resume_Biotech.docx">Résumé (Biotech)</a>
+        <a class="btn btn-ghost" href="assets/Bhubeshnath_P_Resume_IT.docx">Résumé (Computational)</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- BRIDGE -->
+  <section id="bridge" class="section-alt">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Three disciplines, one problem</p>
+        <h2>Most projects sit in one lane. Mine don't.</h2>
+        <p>I move between the bench, the notebook, and the codebase — synthesizing a nanoparticle, validating it against a biological target, then shipping the result as something a person can actually use.</p>
+      </div>
+      <div class="pillars">
+        <div class="pillar reveal">
+          <span class="tag">01 — Wet-Lab</span>
+          <h3>Bench &amp; Instrumentation</h3>
+          <p>Molecular diagnostics, microscopy, and analytical instrumentation, trained hands-on through a DST-FIST sponsored program.</p>
+          <div class="chip-row">
+            <span class="chip">RT-PCR</span><span class="chip">UHPLC</span><span class="chip">NanoDrop</span>
+            <span class="chip">Fluorescence Microscopy</span><span class="chip">XRD / FTIR</span>
+          </div>
+        </div>
+        <div class="pillar reveal">
+          <span class="tag">02 — Computational</span>
+          <h3>Analysis &amp; Modeling</h3>
+          <p>Turning wet-lab findings into validated, quantified claims — and building the software to deliver them.</p>
+          <div class="chip-row">
+            <span class="chip">Python</span><span class="chip">Molecular Docking</span><span class="chip">Scanpy / GEO</span>
+            <span class="chip">React.js</span><span class="chip">Machine Learning</span>
+          </div>
+        </div>
+        <div class="pillar reveal">
+          <span class="tag">03 — Formulation</span>
+          <h3>Product &amp; Design Thinking</h3>
+          <p>Taking a bioactive from literature to a physically validated, cost-modeled product a person would buy.</p>
+          <div class="chip-row">
+            <span class="chip">Phytochemistry</span><span class="chip">Design Thinking</span>
+            <span class="chip">Nutraceutical Dev.</span><span class="chip">Consumer Research</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORK -->
+  <section id="work">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Featured work</p>
+        <h2>Projects</h2>
+        <p>Two projects, each carrying a different one of the three disciplines further.</p>
+      </div>
+
+      <div class="project-card featured reveal">
+        <div class="project-top">
+          <div>
+            <h3>WoundChron</h3>
+            <p class="project-meta">Final-Year Project · Wet-Lab + Computational + Software</p>
+          </div>
+          <span class="project-meta">2025 – 2026</span>
+        </div>
+        <p class="project-desc">A wound-aging estimation platform built on green-synthesized nanoparticles, validated computationally, and shipped as a working web application — the clearest example of the three-discipline bridge in one project.</p>
+        <div class="project-facets">
+          <span class="facet">ZnO Nanoparticle Synthesis</span>
+          <span class="facet">Molecular Docking</span>
+          <span class="facet">GEO Transcriptomics</span>
+          <span class="facet">React.js</span>
+        </div>
+        <ul class="project-list">
+          <li>Green-synthesized ZnO nanoparticles from <em>Ageratum conyzoides</em> extract, characterized via UV-Vis, XRD, and FTIR; validated antimicrobial activity against <em>E. coli</em> and <em>P. aeruginosa</em></li>
+          <li>Performed molecular docking (quercetin, −8.3 kcal/mol vs. target 3MME) and GEO transcriptomic biomarker analysis (Scanpy) to support the wound-aging model</li>
+          <li>Built and deployed a React.js web app with role-based access (clinician vs. patient), a JavaScript image-analysis pipeline (Gaussian blur, Otsu thresholding, healing-rate estimation), and automated PDF/CSV reporting</li>
+          <li>Originated as a venture concept through the Ignite Bootcamp (Venture Idea Development) program</li>
+        </ul>
+        <div class="project-links">
+          <a href="https://bhubeshbtech.github.io/woundchron" target="_blank" rel="noopener">Live app →</a>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-top">
+          <div>
+            <h3>Nyctan Chews</h3>
+            <p class="project-meta">Solo Project · Innovation &amp; Design Thinking Course</p>
+          </div>
+          <span class="project-meta">2025</span>
+        </div>
+        <p class="project-desc">A natural immunity gummy formulated from Coral Jasmine (<em>Nyctanthes arbor-tristis</em>) extract, taken through a full design-thinking cycle from consumer research to a costed, testable product.</p>
+        <div class="project-facets">
+          <span class="facet">Dual Extraction</span>
+          <span class="facet">Agar-Agar Gelation</span>
+          <span class="facet">Design Thinking</span>
+          <span class="facet">SDG Mapping</span>
+        </div>
+        <ul class="project-list">
+          <li>Used dual extraction — cold maceration to preserve bioactives, heat-assisted for natural coloring — with agar-agar gelation and natural excipients (jaggery, honey, lemon)</li>
+          <li>Validated the formulation physicochemically: pH ~4.2, °Brix ~36°, moisture content 18–20%, plus preliminary antimicrobial testing</li>
+          <li>Backed the product with a cost-per-pack analysis and mapped it to four UN Sustainable Development Goals (3, 9, 12, 15)</li>
+        </ul>
+        <div class="project-links">
+          <a href="assets/Nyctan_Chews_Report.pdf" target="_blank" rel="noopener">Project report (PDF) →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section id="timeline" class="section-alt">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Chronology</p>
+        <h2>Education &amp; Experience</h2>
+      </div>
+      <div class="timeline">
+        <div class="tl-item reveal">
+          <span class="tl-year">2022</span>
+          <h4>B.Tech Biotechnology begins — Rajalakshmi Engineering College</h4>
+          <p>Autonomous institution, Anna University affiliated. Chennai, India.</p>
+        </div>
+        <div class="tl-item reveal">
+          <span class="tl-year">Jun – Jul 2024</span>
+          <h4>Research Intern, DST-FIST Sponsored Analytical Instruments Lab</h4>
+          <p>Two-week hands-on training: RT-PCR-based SARS-CoV-2 detection, fluorescence microscopy assays, UHPLC quantification, and NanoDrop-based nanoparticle synthesis. Co-authored the training report as part of a 3-member team under Dr. Rekha Ravindran. <a href="assets/DST_FIST_Internship_Report.pdf" target="_blank" rel="noopener" style="color:var(--teal); border-bottom:1px solid var(--teal-soft);">View report (PDF) →</a></p>
+        </div>
+        <div class="tl-item reveal">
+          <span class="tl-year">2025</span>
+          <h4>Nyctan Chews — Innovation &amp; Design Thinking course project</h4>
+          <p>Solo-designed and formulated a natural immunity gummy from Coral Jasmine extract.</p>
+        </div>
+        <div class="tl-item reveal">
+          <span class="tl-year">2025</span>
+          <h4>GATE (BT) Qualified</h4>
+          <p>Graduate Aptitude Test in Engineering — Biotechnology.</p>
+        </div>
+        <div class="tl-item reveal">
+          <span class="tl-year">2026</span>
+          <h4>WoundChron — Final-Year Project · CGPA 8.02 · Graduation</h4>
+          <p>Nanoparticle synthesis, molecular docking, transcriptomic analysis, and a deployed web app, brought together under one final-year project.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Toolkit</p>
+        <h2>Skills</h2>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-group reveal">
+          <h4>Molecular Biology &amp; Diagnostics</h4>
+          <div class="chip-row">
+            <span class="chip">RT-PCR</span><span class="chip">Reverse Transcription</span>
+            <span class="chip">Molecular Diagnostics</span><span class="chip">Ct Value Analysis</span>
+          </div>
+        </div>
+        <div class="skill-group reveal">
+          <h4>Microscopy &amp; Microbiology</h4>
+          <div class="chip-row">
+            <span class="chip">Fluorescence Microscopy</span><span class="chip">Crystal Violet Biofilm Assay</span>
+            <span class="chip">Live/Dead Staining</span><span class="chip">DAPI Staining</span><span class="chip">Antimicrobial Assays</span>
+          </div>
+        </div>
+        <div class="skill-group reveal">
+          <h4>Analytical Instrumentation</h4>
+          <div class="chip-row">
+            <span class="chip">UHPLC</span><span class="chip">NanoDrop UV-Vis</span>
+            <span class="chip">XRD</span><span class="chip">FTIR</span><span class="chip">SEM-EDX</span>
+          </div>
+        </div>
+        <div class="skill-group reveal">
+          <h4>Nanotechnology &amp; Formulation</h4>
+          <div class="chip-row">
+            <span class="chip">Green Nanoparticle Synthesis</span><span class="chip">Product Formulation</span>
+            <span class="chip">Phytochemistry</span><span class="chip">Nutraceutical Development</span>
+          </div>
+        </div>
+        <div class="skill-group reveal">
+          <h4>Computational</h4>
+          <div class="chip-row">
+            <span class="chip">Python</span><span class="chip">Machine Learning</span><span class="chip">SQL / R</span>
+            <span class="chip">Molecular Docking</span><span class="chip">Scanpy / GEO</span><span class="chip">NLP</span>
+          </div>
+        </div>
+        <div class="skill-group reveal">
+          <h4>Web Development</h4>
+          <div class="chip-row">
+            <span class="chip">React.js</span><span class="chip">JavaScript</span>
+            <span class="chip">Git / GitHub</span><span class="chip">GitHub Actions</span><span class="chip">Vite</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTS -->
+  <section id="certs" class="section-alt">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Credentials</p>
+        <h2>Certifications</h2>
+      </div>
+      <div class="cert-grid reveal">
+        <div class="cert-item"><span class="cert-dot">·</span>Advanced Analytical Instrumentation in Biotechnology</div>
+        <div class="cert-item"><span class="cert-dot">·</span>Drug Design &amp; Discovery Workshop</div>
+        <div class="cert-item"><span class="cert-dot">·</span>AIML Approaches for Drug &amp; Vaccine Design in Cancer</div>
+        <div class="cert-item"><span class="cert-dot">·</span>Industrial Biotechnology (NPTEL)</div>
+        <div class="cert-item"><span class="cert-dot">·</span>Nanotechnology in Agriculture (NPTEL)</div>
+        <div class="cert-item"><span class="cert-dot">·</span>Biomechanics (NPTEL)</div>
+        <div class="cert-item"><span class="cert-dot">·</span>Ignite Bootcamp – Venture Idea Development</div>
+        <div class="cert-item"><span class="cert-dot">·</span>NPTEL: Bioinformatics, Python, Machine Learning</div>
+        <div class="cert-item"><span class="cert-dot">·</span>Hands-On Healthcare Analytics</div>
+        <div class="cert-item"><span class="cert-dot">·</span>Machine Learning Fundamentals for Healthcare</div>
+      </div>
+      <p class="cert-note">Full certification list available on LinkedIn.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer id="contact">
+  <div class="wrap">
+    <p class="eyebrow" style="color:var(--teal-soft)">Get in touch</p>
+    <h2>Let's talk.</h2>
+    <p class="lead">Open to fresher-level roles in bioinformatics, computational biology, and AI-for-biotech — based in Chennai, open to Bangalore and Hyderabad.</p>
+    <div class="contact-links">
+      <a href="mailto:220401030@rajalakshmi.edu.in">220401030@rajalakshmi.edu.in</a>
+      <a href="tel:+916374568450">+91 63745 68450</a>
+      <a href="https://linkedin.com/in/bhubeshnathp" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a href="https://github.com/bhubeshbtech" target="_blank" rel="noopener">GitHub ↗</a>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Bhubeshnath P</span>
+      <span>Built with wet-lab data, and code.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Mobile nav toggle
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  navToggle.addEventListener('click', () => {
+    const open = navLinks.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    navToggle.setAttribute('aria-expanded', 'false');
+  }));
+
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Spectrum draw-on-load animation
+  const path = document.getElementById('spectrum-path');
+  const peak = document.getElementById('spectrum-peak');
+  const peakLabel = document.getElementById('spectrum-peak-label');
+  if (path) {
+    const len = path.getTotalLength();
+    if (reduceMotion) {
+      peak.setAttribute('opacity', '1');
+      peakLabel.setAttribute('opacity', '1');
+    } else {
+      path.style.strokeDasharray = len;
+      path.style.strokeDashoffset = len;
+      requestAnimationFrame(() => {
+        path.style.transition = 'stroke-dashoffset 1.7s cubic-bezier(.16,.84,.44,1)';
+        path.style.strokeDashoffset = '0';
+      });
+      setTimeout(() => {
+        peak.style.transition = 'opacity .5s ease';
+        peakLabel.style.transition = 'opacity .5s ease';
+        peak.setAttribute('opacity', '1');
+        peakLabel.setAttribute('opacity', '1');
+      }, 1500);
+    }
+  }
+
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  if (reduceMotion) {
+    revealEls.forEach(el => el.classList.add('is-visible'));
+  } else {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    revealEls.forEach(el => io.observe(el));
+  }
+</script>
+
+</body>
+</html>
