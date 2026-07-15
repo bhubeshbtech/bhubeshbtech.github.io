@@ -28,7 +28,9 @@
   html{scroll-behavior:smooth;}
   body{
     margin:0;
-    background:var(--bg);
+    background-color:var(--bg);
+    background-image: radial-gradient(circle, rgba(28,124,116,0.09) 1px, transparent 1.5px);
+    background-size: 24px 24px;
     color:var(--ink);
     font-family:'IBM Plex Sans', sans-serif;
     font-size:16px;
@@ -171,7 +173,11 @@
 
   /* ---------- SECTION GENERIC ---------- */
   section{padding:64px 0;}
-  .section-alt{background:var(--bg-alt);}
+  .section-alt{
+    background-color:var(--bg-alt);
+    background-image: radial-gradient(circle, rgba(28,124,116,0.09) 1px, transparent 1.5px);
+    background-size: 24px 24px;
+  }
   .section-head{max-width:640px; margin-bottom:40px;}
   .section-head h2{font-size:clamp(1.6rem, 3.4vw, 2.2rem);}
   .section-head p{color:var(--ink-soft); font-size:1.02rem;}
@@ -279,7 +285,12 @@
 
   /* ---------- FOOTER ---------- */
   footer{
-    background:var(--ink); color:var(--bg);
+    background-color:var(--ink); color:var(--bg);
+    background-image:
+      linear-gradient(30deg, rgba(255,255,255,0.045) 1px, transparent 1px),
+      linear-gradient(150deg, rgba(255,255,255,0.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.045) 1px, transparent 1px);
+    background-size: 46px 80px;
     padding:60px 0 34px;
   }
   footer h2{color:var(--bg); font-size:clamp(1.7rem,4vw,2.4rem);}
@@ -464,8 +475,14 @@
   </section>
 
   <!-- TIMELINE -->
-  <section id="timeline" class="section-alt">
-    <div class="wrap">
+  <section id="timeline" class="section-alt" style="position:relative; overflow:hidden;">
+    <svg aria-hidden="true" style="position:absolute; top:0; right:-5%; width:60%; height:100%; opacity:0.07; pointer-events:none;" viewBox="0 0 500 500" preserveAspectRatio="xMidYMid slice">
+      <path d="M0,480 C120,478 180,476 210,470 C240,460 250,420 260,340 C268,260 274,180 282,120 C288,80 296,60 310,55" fill="none" stroke="#1C7C74" stroke-width="3"/>
+      <path d="M0,485 C140,483 200,481 230,476 C262,468 272,440 282,370 C290,300 298,220 306,160 C312,120 320,100 334,95" fill="none" stroke="#1C7C74" stroke-width="3"/>
+      <path d="M0,490 C160,488 220,486 250,482 C284,476 294,455 304,400 C312,340 320,270 328,210 C334,170 342,150 356,144" fill="none" stroke="#B8862A" stroke-width="3"/>
+      <path d="M0,494 C300,493 340,492 360,490 C380,488 385,485 390,480" fill="none" stroke="#8B938D" stroke-width="2" stroke-dasharray="2 5"/>
+    </svg>
+    <div class="wrap" style="position:relative; z-index:1;">
       <div class="section-head reveal">
         <p class="eyebrow">Chronology</p>
         <h2>Education &amp; Experience</h2>
